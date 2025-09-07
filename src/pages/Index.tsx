@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { usePWA } from "@/hooks/usePWA";
 import Header from "@/components/LearningPlatform/Header";
 import Hero from "@/components/LearningPlatform/Hero";
 import VirtualClassroom from "@/components/LearningPlatform/VirtualClassroom";
 import AITutor from "@/components/LearningPlatform/AITutor";
 import CodeLab from "@/components/LearningPlatform/CodeLab";
+import SecureTest from "@/components/LearningPlatform/SecureTest";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -20,11 +22,13 @@ import {
   Heart,
   Star,
   Play,
-  CheckCircle
+  CheckCircle,
+  Download
 } from "lucide-react";
 
 const Index = () => {
   const [currentView, setCurrentView] = useState("home");
+  const { isInstallable, isOffline, installPWA } = usePWA();
 
   const features = [
     {
@@ -101,6 +105,8 @@ const Index = () => {
         return <AITutor />;
       case "code-lab":
         return <CodeLab />;
+      case "secure-test":
+        return <SecureTest />;
       default:
         return (
           <>
@@ -251,6 +257,14 @@ const Index = () => {
                 <Code className="w-4 h-4 mr-2" />
                 Code Lab
               </Button>
+              <Button
+                variant={currentView === "secure-test" ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setCurrentView("secure-test")}
+              >
+                <Shield className="w-4 h-4 mr-2" />
+                Secure Test
+              </Button>
             </div>
           </div>
         </div>
@@ -261,6 +275,22 @@ const Index = () => {
       {/* Demo Buttons for Navigation */}
       {currentView === "home" && (
         <div className="fixed bottom-6 right-6 space-y-3 z-50">
+          {isOffline && (
+            <div className="bg-yellow-500 text-white px-4 py-2 rounded-lg mb-2">
+              ऑफ़लाइन मोड | Offline Mode
+            </div>
+          )}
+          {isInstallable && (
+            <Button
+              onClick={installPWA}
+              variant="outline"
+              size="lg"
+              className="shadow-lg gap-2 block bg-white"
+            >
+              <Download className="w-5 h-5" />
+              Install App
+            </Button>
+          )}
           <Button
             variant="hero"
             size="lg"
@@ -287,6 +317,15 @@ const Index = () => {
           >
             <Code className="w-5 h-5" />
             Code Lab
+          </Button>
+          <Button
+            variant="destructive"
+            size="lg"
+            onClick={() => setCurrentView("secure-test")}
+            className="shadow-soft gap-2 block"
+          >
+            <Shield className="w-5 h-5" />
+            Secure Test
           </Button>
         </div>
       )}
