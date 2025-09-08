@@ -27,7 +27,7 @@ const SignIn = () => {
       formData.role
     );
     if (success) {
-      window.location.href = '/#/';
+      window.location.href = '/rural-gyan-aangan/#/';
     }
   };
 

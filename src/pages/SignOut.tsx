@@ -20,11 +20,11 @@ const SignOut = () => {
   };
 
   const handleBackToHome = () => {
-    window.location.href = "/";
+    window.location.href = "/rural-gyan-aangan/";
   };
 
   const handleSignInAgain = () => {
-    window.location.href = "/signin";
+    window.location.href = "/rural-gyan-aangan/#/signin";
   };
 
   if (isSignedOut) {

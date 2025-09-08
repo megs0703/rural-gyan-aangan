@@ -52,7 +52,7 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="xl" className="gap-3" onClick={() => window.location.href = '/#/signin'}>
+              <Button variant="hero" size="xl" className="gap-3" onClick={() => window.location.href = '/rural-gyan-aangan/#/signin'}>
                 <Play className="w-5 h-5" />
                 Start Learning Now
               </Button>
