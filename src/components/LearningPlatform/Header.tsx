@@ -156,6 +156,18 @@ const Header = ({ onNavigate, currentView = 'home' }: HeaderProps) => {
                   {item.label}
                 </Button>
               ))}
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="justify-start gap-2"
+                onClick={() => {
+                  window.location.hash = '#/signout';
+                  setIsMenuOpen(false);
+                }}
+              >
+                <LogOut className="w-4 h-4" />
+                Sign Out
+              </Button>
             </nav>
             <div className="mt-4 pt-4 border-t border-border">
               <div className="flex items-center gap-2">
