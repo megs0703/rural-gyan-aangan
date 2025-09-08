@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { useAuth } from "@/contexts/AuthContext";
 import { 
   Bell, 
   Search, 
@@ -15,7 +16,8 @@ import {
   Settings,
   Shield,
   Brain,
-  Home
+  Home,
+  LogOut
 } from "lucide-react";
 
 interface HeaderProps {
@@ -26,6 +28,7 @@ interface HeaderProps {
 const Header = ({ onNavigate, currentView = 'home' }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState('en');
+  const { user } = useAuth();
 
   const navItems = [
     { id: 'home', label: 'Home', icon: Home },
@@ -103,11 +106,22 @@ const Header = ({ onNavigate, currentView = 'home' }: HeaderProps) => {
               </Badge>
             </div>
 
+            {/* Sign Out */}
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={() => window.location.href = '/#/signout'}
+              className="gap-2"
+            >
+              <LogOut className="w-4 h-4" />
+              Sign Out
+            </Button>
+
             {/* Profile */}
             <Avatar className="w-8 h-8">
-              <AvatarImage src="/placeholder-avatar.jpg" alt="Student" />
+              <AvatarImage src="/placeholder-avatar.jpg" alt={user?.name || 'User'} />
               <AvatarFallback className="bg-gradient-primary text-white">
-                रा
+                {user?.name?.charAt(0) || 'U'}
               </AvatarFallback>
             </Avatar>
 

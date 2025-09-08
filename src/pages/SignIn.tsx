@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { BookOpen, Eye, EyeOff, Mail, Lock, User } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,10 +16,19 @@ const SignIn = () => {
     role: "student"
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const { signIn } = useAuth();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Handle authentication logic here
+    const success = await signIn(
+      formData.email, 
+      formData.password, 
+      formData.name, 
+      formData.role
+    );
+    if (success) {
+      window.location.href = '/#/';
+    }
   };
 
   return (

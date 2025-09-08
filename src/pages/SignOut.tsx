@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookOpen, CheckCircle, LogOut } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const SignOut = () => {
   const [isSigningOut, setIsSigningOut] = useState(false);
   const [isSignedOut, setIsSignedOut] = useState(false);
 
+  const { signOut } = useAuth();
+
   const handleSignOut = () => {
     setIsSigningOut(true);
-    // Simulate sign out process
     setTimeout(() => {
+      signOut();
       setIsSigningOut(false);
       setIsSignedOut(true);
-      // Clear user data, tokens, etc.
-      localStorage.clear();
-      sessionStorage.clear();
     }, 2000);
   };
 
