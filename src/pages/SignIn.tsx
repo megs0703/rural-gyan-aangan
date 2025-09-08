@@ -27,7 +27,7 @@ const SignIn = () => {
       formData.role
     );
     if (success) {
-      window.location.hash = '#/';
+      window.location.hash = '#/dashboard';
     }
   };
 
