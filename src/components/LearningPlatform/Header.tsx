@@ -49,8 +49,8 @@ const Header = ({ onNavigate, currentView = 'home' }: HeaderProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => onNavigate?.('home')}>
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center">
-              <img src="./logo.svg" alt="शिक्षा सेतु Logo" className="w-10 h-10" />
+            <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center">
+              <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div>
               <h1 className="text-xl font-bold text-foreground">शिक्षा सेतु</h1>
