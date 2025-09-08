@@ -56,7 +56,7 @@ const Hero = () => {
                 <Play className="w-5 h-5" />
                 Start Learning Now
               </Button>
-              <Button variant="glass" size="xl" className="gap-3">
+              <Button variant="outline" size="xl" className="gap-3 bg-white hover:bg-gray-50">
                 <BookOpen className="w-5 h-5" />
                 Virtual Tour
               </Button>
