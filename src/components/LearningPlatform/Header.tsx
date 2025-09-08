@@ -110,7 +110,7 @@ const Header = ({ onNavigate, currentView = 'home' }: HeaderProps) => {
             <Button 
               variant="ghost" 
               size="sm" 
-              onClick={() => window.location.href = '/rural-gyan-aangan/#/signout'}
+              onClick={() => window.location.hash = '#/signout'}
               className="gap-2"
             >
               <LogOut className="w-4 h-4" />
