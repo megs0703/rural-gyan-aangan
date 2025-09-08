@@ -26,7 +26,11 @@ import {
   Clock,
   CheckCircle,
   AlertCircle,
-  Languages
+  Languages,
+  Globe,
+  Blocks,
+  Coffee,
+  Hash
 } from "lucide-react";
 
 const CodeLab = () => {
@@ -54,12 +58,12 @@ if __name__ == "__main__":
   const [isRunning, setIsRunning] = useState(false);
 
   const programmingLanguages = [
-    { id: 'python', name: 'Python', icon: '🐍', color: 'bg-green-500' },
-    { id: 'javascript', name: 'JavaScript', icon: '🟨', color: 'bg-yellow-500' },
-    { id: 'java', name: 'Java', icon: '☕', color: 'bg-red-500' },
-    { id: 'cpp', name: 'C++', icon: '⚡', color: 'bg-blue-500' },
-    { id: 'html', name: 'HTML/CSS', icon: '🌐', color: 'bg-orange-500' },
-    { id: 'scratch', name: 'Scratch', icon: '🐱', color: 'bg-purple-500' },
+    { id: 'python', name: 'Python', symbol: 'py', color: 'bg-green-500' },
+    { id: 'javascript', name: 'JavaScript', symbol: 'JS', color: 'bg-yellow-500' },
+    { id: 'java', name: 'Java', symbol: 'J', color: 'bg-red-500' },
+    { id: 'cpp', name: 'C++', symbol: 'C++', color: 'bg-blue-500' },
+    { id: 'html', name: 'HTML/CSS', symbol: '<>', color: 'bg-orange-500' },
+    { id: 'scratch', name: 'Scratch', symbol: 'S', color: 'bg-purple-500' },
   ];
 
   const languages = [
@@ -244,7 +248,7 @@ console.log(\`क्षेत्रफल | Area: \${area} वर्ग मी�
                 onClick={() => setSelectedLanguage(lang.id)}
                 className="flex items-center gap-2 whitespace-nowrap"
               >
-                <span>{lang.icon}</span>
+                <span className="text-xs font-bold">{lang.symbol}</span>
                 <span>{lang.name}</span>
               </Button>
             ))}

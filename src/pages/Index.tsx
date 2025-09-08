@@ -219,56 +219,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header onNavigate={setCurrentView} currentView={currentView} />
       
-      {/* Navigation Pills */}
-      {currentView !== "home" && (
-        <div className="sticky top-16 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
-          <div className="container mx-auto px-4 py-3">
-            <div className="flex items-center gap-3 overflow-x-auto">
-              <Button
-                variant={currentView === "home" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setCurrentView("home")}
-              >
-                Home
-              </Button>
-              <Button
-                variant={currentView === "classroom" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setCurrentView("classroom")}
-              >
-                <Video className="w-4 h-4 mr-2" />
-                Virtual Classroom
-              </Button>
-              <Button
-                variant={currentView === "ai-tutor" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setCurrentView("ai-tutor")}
-              >
-                <Brain className="w-4 h-4 mr-2" />
-                AI Tutor
-              </Button>
-              <Button
-                variant={currentView === "code-lab" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setCurrentView("code-lab")}
-              >
-                <Code className="w-4 h-4 mr-2" />
-                Code Lab
-              </Button>
-              <Button
-                variant={currentView === "secure-test" ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setCurrentView("secure-test")}
-              >
-                <Shield className="w-4 h-4 mr-2" />
-                Secure Test
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
+
 
       {renderContent()}
       

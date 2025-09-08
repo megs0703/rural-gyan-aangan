@@ -85,6 +85,7 @@ const AITutor = () => {
       id: chatHistory.length + 1,
       type: 'user',
       message: inputMessage,
+      translation: '',
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       rating: null
     };

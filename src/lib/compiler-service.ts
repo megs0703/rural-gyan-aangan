@@ -50,27 +50,25 @@ export class CompilerService {
       stdin: input ? btoa(input) : undefined
     };
 
-    const options = {
+    const response = await fetch(`${this.JUDGE0_API_URL}/submissions?base64_encoded=true&wait=true`, {
       method: 'POST',
-      url: `${this.JUDGE0_API_URL}/submissions`,
-      params: { base64_encoded: 'true', wait: 'true' },
       headers: {
         'Content-Type': 'application/json',
         'X-RapidAPI-Key': process.env.JUDGE0_API_KEY || '',
         'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
       },
-      data: compileRequest
-    };
-
-    const response = await axios.request(options);
+      body: JSON.stringify(compileRequest)
+    });
+    
+    const data = await response.json();
     
     return {
-      stdout: response.data.stdout ? atob(response.data.stdout) : null,
-      stderr: response.data.stderr ? atob(response.data.stderr) : null,
-      compile_output: response.data.compile_output ? atob(response.data.compile_output) : null,
-      status: response.data.status,
-      time: response.data.time,
-      memory: response.data.memory
+      stdout: data.stdout ? atob(data.stdout) : null,
+      stderr: data.stderr ? atob(data.stderr) : null,
+      compile_output: data.compile_output ? atob(data.compile_output) : null,
+      status: data.status,
+      time: data.time,
+      memory: data.memory
     };
   }
 
