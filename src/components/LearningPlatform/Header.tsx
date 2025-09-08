@@ -14,7 +14,8 @@ import {
   MessageCircle,
   Settings,
   Shield,
-  Brain
+  Brain,
+  Home
 } from "lucide-react";
 
 interface HeaderProps {
@@ -27,6 +28,7 @@ const Header = ({ onNavigate, currentView = 'home' }: HeaderProps) => {
   const [currentLanguage, setCurrentLanguage] = useState('hi');
 
   const navItems = [
+    { id: 'home', label: 'Home', icon: Home },
     { id: 'classroom', label: 'Virtual Class', icon: Video },
     { id: 'ai-tutor', label: 'AI Tutor', icon: Brain },
     { id: 'code-lab', label: 'Code Lab', icon: Code },
@@ -43,7 +45,7 @@ const Header = ({ onNavigate, currentView = 'home' }: HeaderProps) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => onNavigate?.('home')}>
             <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
