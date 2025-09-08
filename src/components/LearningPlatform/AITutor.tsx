@@ -27,7 +27,7 @@ import {
 } from "lucide-react";
 
 const AITutor = () => {
-  const [currentLanguage, setCurrentLanguage] = useState('hi');
+  const [currentLanguage, setCurrentLanguage] = useState('en');
   const [isListening, setIsListening] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [inputMessage, setInputMessage] = useState('');
@@ -35,8 +35,8 @@ const AITutor = () => {
     {
       id: 1,
       type: 'ai',
-      message: 'नमस्ते! मैं आपका AI शिक्षक हूं। मैं गणित, विज्ञान, और अन्य विषयों में आपकी मदद कर सकता हूं। आप मुझसे हिंदी, अंग्रेजी, पंजाबी या उर्दू में बात कर सकते हैं।',
-      translation: 'Hello! I am your AI teacher. I can help you with mathematics, science, and other subjects. You can talk to me in Hindi, English, Punjabi, or Urdu.',
+      message: 'Hello! I am your AI teacher. I can help you with mathematics, science, and other subjects. You can talk to me in Hindi, English, Punjabi, or Urdu.',
+      translation: 'नमस्ते! मैं आपका AI शिक्षक हूं। मैं गणित, विज्ञान, और अन्य विषयों में आपकी मदद कर सकता हूं। आप मुझसे हिंदी, अंग्रेजी, पंजाबी या उर्दू में बात कर सकते हैं।',
       timestamp: '2:30 PM',
       rating: null
     }

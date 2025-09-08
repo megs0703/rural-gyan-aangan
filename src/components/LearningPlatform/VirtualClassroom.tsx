@@ -36,7 +36,7 @@ const VirtualClassroom = () => {
   const [selectedTool, setSelectedTool] = useState('pen');
   const [isMonitoring, setIsMonitoring] = useState(true);
   const [tabSwitchCount, setTabSwitchCount] = useState(0);
-  const [currentLanguage, setCurrentLanguage] = useState('hi');
+  const [currentLanguage, setCurrentLanguage] = useState('en');
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isDrawing, setIsDrawing] = useState(false);
 
