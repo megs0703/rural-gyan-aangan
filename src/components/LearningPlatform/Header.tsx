@@ -25,7 +25,7 @@ interface HeaderProps {
 
 const Header = ({ onNavigate, currentView = 'home' }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('hi');
+  const [currentLanguage, setCurrentLanguage] = useState('en');
 
   const navItems = [
     { id: 'home', label: 'Home', icon: Home },
