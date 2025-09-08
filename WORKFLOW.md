@@ -11,7 +11,7 @@ Student visits platform → Registration → Language selection (Hindi/English/P
 ```
 
 #### 🗺️ Student Workflow Flowchart
-```mermaid
+<!-- ```mermaid
 graph TD
     A[Visit Platform] --> B[Register]
     B --> C[Select Language]
@@ -25,7 +25,7 @@ graph TD
     J --> K[AI Tutor for Doubts]
     K --> L[Practice in Code Lab]
     L --> M[Take Assessments]
-    M --> N[Review Progress]
+    M --> N[Review Progress] -->
 ```
 
 ![Student Dashboard](images/student-dashboard.png)
@@ -66,7 +66,7 @@ Test notification → Pre-test setup → Camera/browser verification
 ```
 
 #### 🗺️ Secure Testing Workflow Flowchart
-```mermaid
+<!-- ```mermaid
 graph TD
     A[Test Notification] --> B[Pre-test Setup]
     B --> C[Camera/Browser Verification]
@@ -75,7 +75,7 @@ graph TD
     E --> F[Real-time Monitoring]
     F --> G[Submit Test]
     G --> H[View Results]
-```
+``` -->
 
 ### 👨‍🏫 Teacher Workflow
 
@@ -86,7 +86,7 @@ Login → Create class session → Upload materials → Set up whiteboard conten
 ```
 
 #### 🗺️ Teacher Workflow Flowchart
-```mermaid
+<!-- ```mermaid
 graph TD
     A[Login] --> B[Create Class Session]
     B --> C[Upload Materials]
@@ -101,7 +101,7 @@ graph TD
     K --> L[Record Session]
     L --> M[End Class]
     M --> N[Save Materials]
-```
+``` -->
 
 ![Teacher Dashboard](images/teacher-dashboard.png)
 
@@ -142,7 +142,7 @@ Create feature branch → Code changes → Test locally
 ```
 
 #### 🗺️ Development Workflow Flowchart
-```mermaid
+<!-- ```mermaid
 graph TD
     A[Setup] --> B[Feature Branch]
     B --> C[Code Changes]
@@ -152,7 +152,7 @@ graph TD
     F --> G[Create PR]
     G --> H[Review]
     H --> I[Merge]
-```
+``` -->
 
 #### 2. **Testing Pipeline**
 ```
@@ -191,7 +191,7 @@ Data collection → Encryption → Secure storage → Access control
 
 ### 📹 Virtual Classroom Workflow
 
-```mermaid
+<!-- ```mermaid
 graph TD
     A[Student joins class] --> B[Camera/Mic check]
     B --> C[Engagement detection starts]
@@ -201,7 +201,7 @@ graph TD
     F --> G[Session recording]
     G --> H[Class ends]
     H --> I[Materials saved]
-```
+``` -->
 
 ### 🤖 AI Tutor Workflow
 
