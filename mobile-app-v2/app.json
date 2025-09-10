@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "शिक्षा सेतु",
+    "slug": "shiksha-setu",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.shikshasetu.app"
+    },
+    "android": {
+      "package": "com.shikshasetu.app",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow शिक्षा सेतु to access your camera for virtual classrooms."
+        }
+      ],
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow शिक्षा सेतु to access your microphone for virtual classrooms."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "66d22efd-f963-4ae5-a38a-03689c2717d7"
+      }
+    }
+  }
+}
