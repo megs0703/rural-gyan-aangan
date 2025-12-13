@@ -1,0 +1,10 @@
+export { default as Home } from './Home'
+export { default as Index } from './Index'
+export { default as SignIn } from './SignIn'
+export { default as SignOut } from './SignOut'
+export { default as NotFound } from './NotFound'
+
+export { default as AdminDashboard } from './AdminDashboard'
+export { default as TeacherDashboard } from './TeacherDashboard'
+export { default as StudentDashboard } from './StudentDashboard'
+export { default as AdminManage } from './AdminManage'

@@ -198,13 +198,37 @@ VITE_WEBRTC_CONFIG=your_webrtc_configuration
 ## 🔮 Future Roadmap
 
 ### Phase 1 (Current)
-- ✅ Virtual Classroom with basic features
-- ✅ AI Tutor with multilingual support
-- ✅ Code Lab environment
-- ✅ Secure testing system
-
 ### Phase 2 (Next 3 months)
 - 📱 Mobile application development
+
+## 🧭 User Roles & Roadmap (Added)
+
+The project now defines three primary user roles with dashboards and responsibilities. This roadmap reflects the `update.md` requirements and the planned mobile support.
+
+### User roles
+
+- Admin: full system access — teacher & student management, logs, and reports.
+- Teacher: conduct virtual classes, setup quizzes, view allocated subjects and class-level analytics.
+- Student: attend virtual classes (live translation), access materials, use AI Tutor, and use the virtual code editor.
+
+### Short-term roadmap (next steps)
+
+1. Implement role-based authentication and protected routes (Admin / Teacher / Student).
+2. Create data models for Teacher, Student and Logs (attendance, performance, reviews).
+3. Build admin UI to view/manage teachers/students and logs.
+4. Wire teacher dashboards to the virtual classroom and quiz creation flows.
+5. Add student dashboard features: AI Tutor integration, code editor, and proctored exams.
+
+### Mobile App
+
+- A React Native (Expo) mobile app will be developed in parallel. See `docs/mobile-plan.md` for the scaffold and milestones.
+- Mobile will support English/Hindi and offline caching for low-bandwidth scenarios.
+
+### How this was added
+
+- Basic placeholder pages were added under `src/pages/` for Admin, Teacher and Student dashboards to serve as starting points.
+- A small `LanguageToggle` component was added at `src/components/ui/LanguageToggle.tsx` to persist language preference locally.
+- Specification docs were added under `docs/` (`roles.md`, `mobile-plan.md`).
 - 🔄 Offline-first architecture
 - 🎮 Gamification and rewards system
 - 📚 Expanded curriculum content

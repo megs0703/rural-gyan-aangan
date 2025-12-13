@@ -2,6 +2,7 @@ import { useState } from "react";
 import { usePWA } from "@/hooks/usePWA";
 import Header from "@/components/LearningPlatform/Header";
 import Hero from "@/components/LearningPlatform/Hero";
+import LanguageToggle from '@/components/ui/LanguageToggle';
 import VirtualClassroom from "@/components/LearningPlatform/VirtualClassroom";
 import AITutor from "@/components/LearningPlatform/AITutor";
 import CodeLab from "@/components/LearningPlatform/CodeLab";
@@ -9,6 +10,7 @@ import SecureTest from "@/components/LearningPlatform/SecureTest";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { getTeacherCount, getStudentCount } from '@/lib/stats'
 import { 
   Video, 
   Users, 
@@ -112,10 +114,49 @@ const Index = () => {
           <>
             <Hero />
             
+            {/* Roles Overview Section */}
+            <section className="py-12 bg-background">
+              <div className="container mx-auto px-4">
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl font-bold">Who uses शिक्षा सेतु?</h2>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">Admin, Teachers and Students — tailored dashboards and tools for each role.</p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="p-6 border rounded-lg" role="region" aria-labelledby="admin-heading">
+                    <h3 id="admin-heading" className="text-lg font-semibold">Admin</h3>
+                    <p className="text-sm text-muted-foreground mt-2">Manage teachers, students, logs, and system-wide settings. Create and monitor classes and reports.</p>
+                    <div className="mt-4">
+                      <button aria-label="Go to admin dashboard" className="px-3 py-2 bg-primary text-white rounded" onClick={() => window.location.hash = '#/admin'}>Go to Admin</button>
+                    </div>
+                    <div className="mt-3 text-sm text-muted-foreground">Teachers: {getTeacherCount()}</div>
+                  </div>
+
+                  <div className="p-6 border rounded-lg" role="region" aria-labelledby="teacher-heading">
+                    <h3 id="teacher-heading" className="text-lg font-semibold">Teacher</h3>
+                    <p className="text-sm text-muted-foreground mt-2">Run live classes, create quizzes, and review student performance using AI insights.</p>
+                    <div className="mt-4">
+                      <button aria-label="Go to teacher dashboard" className="px-3 py-2 bg-primary text-white rounded" onClick={() => window.location.hash = '#/teacher'}>Go to Teacher</button>
+                    </div>
+                    <div className="mt-3 text-sm text-muted-foreground">Teachers: {getTeacherCount()}</div>
+                  </div>
+
+                  <div className="p-6 border rounded-lg" role="region" aria-labelledby="student-heading">
+                    <h3 id="student-heading" className="text-lg font-semibold">Student</h3>
+                    <p className="text-sm text-muted-foreground mt-2">Attend virtual classes, access study materials, use the AI Tutor and code lab, and track your progress.</p>
+                    <div className="mt-4">
+                      <button aria-label="Go to student dashboard" className="px-3 py-2 bg-primary text-white rounded" onClick={() => window.location.hash = '#/student'}>Go to Student</button>
+                    </div>
+                    <div className="mt-3 text-sm text-muted-foreground">Students: {getStudentCount()}</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Features Section */}
             <section className="py-20 bg-background">
               <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
+                <div className="text-center mb-8">
                   <Badge className="bg-gradient-secondary text-white mb-4">
                     शिक्षा सेतु Features
                   </Badge>
@@ -127,7 +168,7 @@ const Index = () => {
                   </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {features.map((feature, index) => (
                     <Card key={index} className="shadow-soft hover:shadow-medium transition-all duration-300 group">
                       <CardHeader>
@@ -141,7 +182,7 @@ const Index = () => {
                       </CardContent>
                     </Card>
                   ))}
-                </div>
+                  </div>
               </div>
             </section>
 
@@ -220,6 +261,19 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header onNavigate={setCurrentView} currentView={currentView} />
+
+      {/* Top controls: language toggle + quick role actions */}
+      <div className="container mx-auto px-4 mt-6 flex items-center justify-end">
+        <div className="mr-4">
+          <LanguageToggle />
+        </div>
+        <div className="flex gap-2">
+          <button className="px-3 py-2 rounded bg-primary text-white" onClick={() => window.location.hash = '#/signin'}>Sign In</button>
+          <button className="px-3 py-2 rounded border" onClick={() => window.location.hash = '#/admin'}>Admin</button>
+          <button className="px-3 py-2 rounded border" onClick={() => window.location.hash = '#/teacher'}>Teacher</button>
+          <button className="px-3 py-2 rounded border" onClick={() => window.location.hash = '#/student'}>Student</button>
+        </div>
+      </div>
       
 
 

@@ -107,6 +107,17 @@ const Header = ({ onNavigate, currentView = 'home' }: HeaderProps) => {
             </div>
 
             {/* Sign Out */}
+            {/* Quick role links */}
+            {user?.role === 'admin' && (
+              <Button variant="ghost" size="sm" onClick={() => window.location.hash = '#/admin'} className="gap-2">Admin</Button>
+            )}
+            {user?.role === 'teacher' && (
+              <Button variant="ghost" size="sm" onClick={() => window.location.hash = '#/teacher'} className="gap-2">Teacher</Button>
+            )}
+            {user?.role === 'student' && (
+              <Button variant="ghost" size="sm" onClick={() => window.location.hash = '#/student'} className="gap-2">Student</Button>
+            )}
+
             <Button 
               variant="ghost" 
               size="sm" 

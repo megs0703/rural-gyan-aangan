@@ -27,7 +27,11 @@ const SignIn = () => {
       formData.role
     );
     if (success) {
-      window.location.hash = '#/dashboard';
+      // Redirect based on role for easier testing of role-specific pages
+      if (formData.role === 'admin') window.location.hash = '#/admin';
+      else if (formData.role === 'teacher') window.location.hash = '#/teacher';
+      else if (formData.role === 'student') window.location.hash = '#/student';
+      else window.location.hash = '#/dashboard';
     }
   };
 
@@ -126,6 +130,7 @@ const SignIn = () => {
                     <option value="student">Student</option>
                     <option value="teacher">Teacher</option>
                     <option value="parent">Parent</option>
+                    <option value="admin">Admin</option>
                   </select>
                 </div>
               )}
